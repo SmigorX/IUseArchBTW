@@ -1,2 +1,1 @@
-# IUseArchBTW
-Backup of my Arch config files
+## Backup of my different config files.
