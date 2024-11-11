@@ -19,8 +19,13 @@ opt.spell = true
 
 -- Numbers --
 opt.number = true
+opt.relativenumber = true
 opt.numberwidth = 2
 opt.ruler = false
+
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#eb551f' })
+vim.api.nvim_set_hl(0, 'LineNr', { fg='white' })
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#eb551f' })
 
 -- Bootstrapping Lazy --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
