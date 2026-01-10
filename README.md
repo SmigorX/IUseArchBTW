@@ -1,3 +1,3 @@
-## Backup of my different config files.
+# IUseArchBTW
 
-Wallpaper: https://www.wallpaperflare.com/watchtower-digital-wallpaper-brown-tower-firewatch-video-games-wallpaper-spz
+Backup of my Arch config files
