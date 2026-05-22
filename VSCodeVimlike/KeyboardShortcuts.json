@@ -1,0 +1,46 @@
+[
+    // ==========================================
+    // 1. ZATWIERDZANIE AUTOCOMPLETION (Ctrl + L zamiast Tab)
+    // ==========================================
+    {
+        "key": "ctrl+l",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    // ==========================================
+    // 2. WYSZUKIWARKA f + g (Telescope flow)
+    // ==========================================
+    {
+        "key": "tab",
+        "command": "search.action.focusSearchEditorResults",
+        "when": "inSearchEditor && searchInputBoxFocus"
+    },
+    {
+        "key": "enter",
+        "command": "search.action.openResult",
+        "when": "inSearchEditor && !searchInputBoxFocus"
+    },
+    {
+        "key": "escape",
+        "command": "search.action.focusQueryEditor",
+        "when": "inSearchEditor && !searchInputBoxFocus"
+    },
+    // ==========================================
+    // 3. ZARZĄDZANIE PLIKAMI (Neo-tree style)
+    // ==========================================
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    }
+]
