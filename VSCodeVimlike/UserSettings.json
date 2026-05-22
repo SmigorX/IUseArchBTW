@@ -1,0 +1,123 @@
+{
+    // ==========================================
+    // 1. WYGLĄD I INTERFEJS (Catppuccin Mocha)
+    // ==========================================
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "editor.lineNumbers": "relative", // Relatywne linie jak w NVim
+    "editor.minimap.enabled": false, // Czysty wygląd bez minimapy
+    "editor.guides.indentation": true, // Wyraźne linie pionowe dla wcięć (YAML/Helm)
+    // ==========================================
+    // 2. FORMATOWANIE I LSP (Zastępuje conform.nvim / nvim-cmp)
+    // ==========================================
+    "editor.formatOnSave": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.autocomplete.suggestOnTriggerCharacters": true,
+    // ==========================================
+    // 3. PODSTAWOWA KONFIGURACJA VIM
+    // ==========================================
+    "vim.useSystemClipboard": true, // Wspólny schowek z systemem
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "keyboard.dispatch": "keyCode", // Naprawia powtarzanie ruchów h/j/k/l na Linuksie
+    // ==========================================
+    // 4. LEADER / SKRÓTY REPLIKUJĄCE TELESCOPE & NEO-TREE
+    // ==========================================
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // f + f -> Szukanie plików po nazwie (Telescope find file)
+        {
+            "before": [
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        // f + g -> Szukanie tekstu z podglądem kodu w pełnym oknie (Telescope live grep)
+        {
+            "before": [
+                "f",
+                "g"
+            ],
+            "commands": [
+                "search.action.openNewEditor"
+            ]
+        },
+        // space + e -> Otwiera pasek boczny i od razu przerzuca tam fokus dla klawiszy a/d
+        {
+            "before": [
+                "<space>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer",
+                "workbench.files.action.focusFilesExplorer"
+            ]
+        },
+        // b + d -> Zamknięcie aktualnej karty (Buffer delete)
+        {
+            "before": [
+                "b",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        // g + d -> Skok do definicji funkcji/zmiennej (Go to Definition)
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        }
+    ],
+    // ==========================================
+    // 5. INTEGRACJA DEVOPS / KUBERNETES Z DISTROBOXEM
+    // ==========================================
+    // Przekierowanie poleceń z Flatpaka prosto do Twojego kontenera arch-box
+    "vscode-kubernetes.helm-path": "distrobox enter arch-box -- helm",
+    "vscode-kubernetes.kubectl-path": "distrobox enter arch-box -- kubectl",
+    // ==========================================
+    // 6. USTAWIENIA DODATKOWYCH WTYCZEK
+    // ==========================================
+    // Kontrola kontekstu wyszukiwania: wyświetla 3 linie kodu nad i pod znalezioną frazą
+    "search.searchEditor.defaultNumberOfContextLines": 3,
+    // Todo Tree - mapowanie tagów jak w todo-comments.nvim
+    "todo-tree.general.tags": [
+        "BUG",
+        "FIXME",
+        "TODO",
+        "NOTE",
+        "WARN"
+    ],
+    // Konfiguracja składni dla plików szablonów Helm (Poprawia brak kolorów w YAML/Templates)
+    "files.associations": {
+        "*.yaml": "yaml",
+        "**/templates/*.yaml": "helm",
+        "**/templates/*.tpl": "helm",
+        "**/templates/*.txt": "helm"
+    },
+    "claudeCode.preferredLocation": "panel",
+    // ==========================================
+    // 7. KONFIGURACJA TERMINALA (ZSH DLA FLATPAKA)
+    // ==========================================
+    "terminal.integrated.defaultProfile.linux": "zsh-host",
+    "terminal.integrated.profiles.linux": {
+        "zsh-host": {
+            "path": "flatpak-spawn",
+            "args": [
+                "--host",
+                "--env=TERM=xterm-256color",
+                "zsh",
+                "-l"
+            ]
+        }
+    },
+    // Zapewnia poprawne wyświetlanie ikon i fontów typu Nerd Fonts w terminalu
+    "terminal.integrated.fontFamily": "monospace",
+    "claudeCode.useTerminal": true
+}
